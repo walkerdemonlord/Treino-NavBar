@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DM Serif Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #e8f0f7;
+    padding-top: 60px;
+}
+
+header {
+    background-color: rgb(19, 22, 26);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Garante que o header fique acima de outros elementos */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+.container01 {
+    font-size: 32px;
+    color: #e8f0f7;
+
+}
+
+.container02 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 28px;
+    color: #e8f0f7;
+}
+
+ul {
+    display: flex;
+    gap: 20px; /* Espaçamento entre os itens do menu */
+    letter-spacing: 2px;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: blue;
+    transition: all 0.4s;
+}
+
+.hamburger {
+    display: none;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #e8f0f7;
+    margin: 4px 0;
+    opacity: 0.8;
+}
+
+/* Exibir a lista de links em coluna entre 910.67px e 722.67px */
+@media (max-width: 910.67px) {
+    .container02 {
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        margin-top: 50px;
+        left: 0;
+        width: 100%;
+        background-color: rgb(19, 22, 26);
+        padding: 10px 0 25px;
+        row-gap: 20px;
+        display: flex;
+        opacity: 1;
+        transition: opacity 0.4s ease-in-out;
+    }
+
+    ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+    }
+}
+
+/* Transformar a lista de links em menu hamburger abaixo de 722.67px */
+@media (max-width: 722.67px) {
+    .container02 {
+        display: none; /* Esconder o menu por padrão em telas menores */
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger:hover .bar {
+        background-color: blue;
+        transition: background-color 0.4s;
+    }
+
+    /* Exibir o menu quando o hamburguer for clicado */
+    .container02.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 1;
+    }
+
+    ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: rgb(19, 22, 26);
+    }
+}
